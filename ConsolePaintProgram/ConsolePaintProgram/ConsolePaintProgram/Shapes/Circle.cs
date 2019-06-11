@@ -11,7 +11,7 @@ namespace ConsolePaintProgram
 
         /*
          
-        x  x              x  x
+        x  x              x  x  
      x        x        x        x
     x          x      x          x
     x          x      x          x
