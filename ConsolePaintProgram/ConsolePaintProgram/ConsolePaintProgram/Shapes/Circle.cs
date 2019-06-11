@@ -8,6 +8,17 @@ namespace ConsolePaintProgram
 {
     public class Circle : Shape
     {
+
+        /*
+         
+        x  x              x  x
+     x        x        x        x
+    x          x      x          x
+    x          x      x          x
+     x        x        x        x
+        x  x              x  x
+
+         */
         public override void Draw()
         {
             int radius = GetRadius();
