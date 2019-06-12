@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brushes\BrushBase.cs" />
     <Compile Include="Brushes\IBrush.cs" />
     <Compile Include="Shapes\Circle.cs" />
     <Compile Include="Brushes\DashBrush.cs" />

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsolePaintProgram
 {
-    public class DeltaBrush : IBrush
+    public class DeltaBrush : BrushBase
     {
-        public string Color { get; set; }
-
-        public char GetStroke()
+        public override char GetStroke()
         {
             return (char)916;
         }

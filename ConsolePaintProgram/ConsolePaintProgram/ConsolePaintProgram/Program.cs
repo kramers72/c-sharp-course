@@ -59,7 +59,7 @@ namespace ConsolePaintProgram
 
             Console.WriteLine();
 
-            Console.WriteLine("1. Black");
+            Console.WriteLine("1. White");
             Console.WriteLine("2. Red");
             Console.WriteLine("3. Blue");
 
@@ -72,6 +72,8 @@ namespace ConsolePaintProgram
             {
                 return null;
             }
+
+
 
             Console.WriteLine("Brush Stroke:");
 

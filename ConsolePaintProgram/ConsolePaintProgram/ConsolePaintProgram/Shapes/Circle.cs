@@ -9,85 +9,99 @@ namespace ConsolePaintProgram
     public class Circle : Shape
     {
 
-        /*
-         
-        x  x              x  x
-     x        x        x        x
-    x          x      x          x
-    x          x      x          x
-     x        x        x        x
-        x  x              x  x
+        private string _small = @"
+                   x    
+                x      x        
+               x        x     
+                x      x     
+                   x";
 
-         */
+        private string _medium = @"
+                  x  x    
+               x        x        
+              x          x     
+              x          x     
+               x        x       
+                  x  x";
+
+        private string _large = @"
+                  x  x  x    
+               x           x        
+              x              x     
+             x                x     
+             x                x       
+             x                x       
+              x              x        
+               x           x        
+                  x  x  x ";
+
+
         public override void Draw()
         {
-            int radius = GetRadius();
-            int diameter = radius * 2;
-            StringBuilder circleString = new StringBuilder();
 
-            int tmp = 0;
-            int row = 0;
 
-            // top of circle
-            for (int i = 0; i < radius; i++)
+            while (true)
             {
-                tmp = radius - i - 1;
-                row = i;
-
-                for (int j = 0; j < radius; j++)
+                switch (GetSize())
                 {
-                    if (j == tmp && j == (radius - 1))
-                    {
-                        circleString.Append(Brush.GetStroke());
+                    case "small":
+                        SetColor();
+                        Console.WriteLine(_small.Replace('x', Brush.GetStroke()));
+                        ResetColor();
+                        return;
+                    case "medium":
+                        SetColor();
+                        Console.WriteLine(_medium.Replace('x', Brush.GetStroke()));
+                        ResetColor();
+                        return;
+                    case "large":
+                        SetColor();
+                        Console.WriteLine(_large.Replace('x', Brush.GetStroke()));
+                        ResetColor();
+                        return;
+                    default:
+                        ResetColor();
+                        Console.WriteLine("invalid entry");
+                        break;
 
-                        //circleString.Append("\n");
-                    }
-                    else if (j == tmp)
-                    {
-                        circleString.Append(Brush.GetStroke());
-
-                        int numSpace = i + 1;
-
-                        for (int k = 0; k < i * radius / i; k++)
-                        {
-                            circleString.Append(" ");
-                        }
-
-                        circleString.Append(Brush.GetStroke());
-
-                        //circleString.Append("\n");
-
-                    }
-                    else
-                    {
-                        circleString.Append(" ");
-                    }
                 }
-
-                circleString.Append("\n");
             }
 
-            // bottom of circle
-            for (int i = 0; i < radius; i++)
-            {
+           
 
-            }
-
-
-            Console.WriteLine();
-            
-            Console.WriteLine(circleString);
-
-
-
-
-            Console.WriteLine();
         }
 
-        private int GetRadius()
+        private void ResetColor()
         {
-            Console.Write("Enter radius: ");
-            return int.Parse(Console.ReadLine());
+            // reset forground color
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        private void SetColor()
+        {
+            switch (Brush.Color)
+            {
+                case "1":
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                case "2":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "3":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                default:
+                    break;
+            }
+
+
+
+        }
+
+        private string GetSize()
+        {
+            Console.Write("Enter size (small, medium, large): ");
+            return Console.ReadLine();
         }
     }
 }
