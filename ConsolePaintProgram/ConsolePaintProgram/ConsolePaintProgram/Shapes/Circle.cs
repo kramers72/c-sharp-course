@@ -42,39 +42,31 @@ namespace ConsolePaintProgram
 
             while (true)
             {
-                switch (GetSize())
+                switch (GetRadius())
                 {
-                    case "small":
+                    case int n when n < 10:
                         SetColor();
                         Console.WriteLine(_small.Replace('x', Brush.GetStroke()));
                         ResetColor();
                         return;
-                    case "medium":
+                    case int n when n < 50:
                         SetColor();
                         Console.WriteLine(_medium.Replace('x', Brush.GetStroke()));
                         ResetColor();
                         return;
-                    case "large":
+                    default:
                         SetColor();
                         Console.WriteLine(_large.Replace('x', Brush.GetStroke()));
                         ResetColor();
                         return;
-                    default:
-                        ResetColor();
-                        Console.WriteLine("invalid entry");
-                        break;
-
                 }
             }
-
-           
-
         }
 
-        private string GetSize()
+        private int GetRadius()
         {
-            Console.Write("Enter size (small, medium, large): ");
-            return Console.ReadLine();
+            Console.Write("Enter radius: ");
+            return int.Parse(Console.ReadLine());
         }
     }
 }

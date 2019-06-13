@@ -79,7 +79,6 @@ __..--''
                 case int n when n >= 12 && n < 25:
                     SetColor();
                     Console.WriteLine(oneEight.Replace('_', Brush.GetStroke()));
-                    Console.WriteLine(oneEight);
                     ResetColor();
                     break;
                 case int n when n >= 25 && n <= 45:
@@ -87,9 +86,9 @@ __..--''
                     Console.WriteLine(oneQuarter.Replace('-', Brush.GetStroke()));
                     ResetColor();
                     break;
-                case int n when n >= 45  && n <= 90:
+                case int n when n >= 45 && n <= 90:
                     SetColor();
-                    Console.WriteLine(ninety.Replace('_', Brush.GetStroke()));
+                    Console.WriteLine(ninety.Replace('|', Brush.GetStroke()));
                     ResetColor();
                     break;
                 default:
