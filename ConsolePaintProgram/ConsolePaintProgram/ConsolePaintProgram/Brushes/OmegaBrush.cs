@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsolePaintProgram
 {
-    public class OmegaBrush : BrushBase
+    public class OmegaBrush : IBrush
     {
-        public override char GetStroke()
+        public string Color { get; set; }
+
+        public char GetStroke()
         {
             return (char)937;
         }

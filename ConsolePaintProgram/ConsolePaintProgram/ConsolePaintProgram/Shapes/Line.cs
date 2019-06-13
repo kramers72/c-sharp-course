@@ -30,26 +30,79 @@ namespace ConsolePaintProgram
                 __..--''
                -------------------------- 0
          */
+
+        private const string oneQuarter = @"
+                  .-'          
+               .-'             
+            .-'             
+         .-'
+      .-'
+   .-'
+.-'
+";
+
+        private const string oneEight = @"
+                        __..--''
+                __..--''
+        __..--''
+__..--''
+";
+
+
+        private const string ninety = @"
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+";
+
+        private const string zero = @"__________________________";
+
+
         public override void Draw()
         {
-            int length = GetLength();
             int angle = GetAngle();
 
-            Console.WriteLine();
-            Console.WriteLine("drawing a line");
+            switch (angle)
+            {
+                case int n when n >= 0 && n < 12:
+                    SetColor();
+                    Console.WriteLine(zero.Replace('_', Brush.GetStroke()));
+                    ResetColor();
+                    break;
+                case int n when n >= 12 && n < 25:
+                    SetColor();
+                    Console.WriteLine(oneEight.Replace('_', Brush.GetStroke()));
+                    Console.WriteLine(oneEight);
+                    ResetColor();
+                    break;
+                case int n when n >= 25 && n <= 45:
+                    SetColor();
+                    Console.WriteLine(oneQuarter.Replace('-', Brush.GetStroke()));
+                    ResetColor();
+                    break;
+                case int n when n >= 45  && n <= 90:
+                    SetColor();
+                    Console.WriteLine(ninety.Replace('_', Brush.GetStroke()));
+                    ResetColor();
+                    break;
+                default:
+                    break;
+            }
+
             Console.WriteLine();
 
-        }
-
-        private int GetLength()
-        {
-            Console.Write("Enter length: ");
-            return int.Parse(Console.ReadLine());
         }
 
         private int GetAngle()
         {
-            Console.Write("Enter angle: ");
+            Console.Write("Enter angle (degrees): ");
             return int.Parse(Console.ReadLine());
         }
     }

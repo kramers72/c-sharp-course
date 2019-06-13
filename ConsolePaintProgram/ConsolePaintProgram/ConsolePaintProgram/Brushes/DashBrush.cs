@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsolePaintProgram
 {
-    public class DashBrush : BrushBase
+    public class DashBrush : IBrush
     {
-        public override char GetStroke()
+        public string Color { get; set; }
+
+        public char GetStroke()
         {
             return '-';
         }

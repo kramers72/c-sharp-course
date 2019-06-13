@@ -71,33 +71,6 @@ namespace ConsolePaintProgram
 
         }
 
-        private void ResetColor()
-        {
-            // reset forground color
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        private void SetColor()
-        {
-            switch (Brush.Color)
-            {
-                case "1":
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-                case "2":
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    break;
-                case "3":
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    break;
-                default:
-                    break;
-            }
-
-
-
-        }
-
         private string GetSize()
         {
             Console.Write("Enter size (small, medium, large): ");
