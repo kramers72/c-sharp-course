@@ -101,24 +101,16 @@ namespace ConsolePaintProgram
             }
         }
 
-        private static void TestUnicode()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+        //private static void TestUnicode()
+        //{
+        //    Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 
-            char e = (char)0xce94;
+        //    char e = (char)0xce94;
 
-            Console.WriteLine(e);
-            //for (var i = 0; i <= 1000; i++)
-            //{
-            //    //Console.Write((char)i);
-            //    //if (i % 50 == 0)
-            //    //{ // break every 50 chars
-            //    //    Console.WriteLine();
-            //    //}
-            //}
-            Console.ReadKey();
-        }
+        //    Console.WriteLine(e);
+        //    Console.ReadKey();
+        //}
 
         private static Shape GetShape(string choice)
         {
