@@ -9,80 +9,60 @@ namespace ConsolePaintProgram
     public class Circle : Shape
     {
 
-        /*
-         
-        x  x              x  x  
-     x        x        x        x
-    x          x      x          x
-    x          x      x          x
-     x        x        x        x
-        x  x              x  x
+        private string _small = @"
+                   x    
+                x      x        
+               x        x     
+                x      x     
+                   x";
 
-         */
+        private string _medium = @"
+                  x  x    
+               x        x        
+              x          x     
+              x          x     
+               x        x       
+                  x  x";
+
+        private string _large = @"
+                  x  x  x    
+               x           x        
+              x              x     
+             x                x     
+             x                x       
+             x                x       
+              x              x        
+               x           x        
+                  x  x  x ";
+
+
         public override void Draw()
         {
-            int radius = GetRadius();
-            int diameter = radius * 2;
-            StringBuilder circleString = new StringBuilder();
 
-            int tmp = 0;
-            int row = 0;
 
-            // top of circle
-            for (int i = 0; i < radius; i++)
+            while (true)
             {
-                tmp = radius - i - 1;
-                row = i;
-
-                for (int j = 0; j < radius; j++)
+                switch (GetRadius())
                 {
-                    if (j == tmp && j == (radius - 1))
-                    {
-                        circleString.Append(Brush.GetStroke());
-
-                        //circleString.Append("\n");
-                    }
-                    else if (j == tmp)
-                    {
-                        circleString.Append(Brush.GetStroke());
-
-                        int numSpace = i + 1;
-
-                        for (int k = 0; k < i * radius / i; k++)
-                        {
-                            circleString.Append(" ");
-                        }
-
-                        circleString.Append(Brush.GetStroke());
-
-                        //circleString.Append("\n");
-
-                    }
-                    else
-                    {
-                        circleString.Append(" ");
-                    }
+                    case int n when n < 10:
+                        SetColor();
+                        Console.WriteLine(_small.Replace('x', Brush.GetStroke()));
+                        ResetColor();
+                        return;
+                    case int n when n < 50:
+                        SetColor();
+                        Console.WriteLine(_medium.Replace('x', Brush.GetStroke()));
+                        ResetColor();
+                        return;
+                    default:
+                        SetColor();
+                        Console.WriteLine(_large.Replace('x', Brush.GetStroke()));
+                        ResetColor();
+                        return;
                 }
-
-                circleString.Append("\n");
             }
-
-            // bottom of circle
-            for (int i = 0; i < radius; i++)
-            {
-
-            }
-
-
-            Console.WriteLine();
-            
-            Console.WriteLine(circleString);
-
-
-
-
-            Console.WriteLine();
         }
+
 
         private int GetRadius()
         {

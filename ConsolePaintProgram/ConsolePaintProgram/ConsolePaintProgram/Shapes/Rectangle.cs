@@ -11,10 +11,46 @@ namespace ConsolePaintProgram
         public override void Draw()
         {
             int length = GetLength();
-            int width = GetWidth();
+            int height = GetHeight();
 
             Console.WriteLine();
-            Console.WriteLine("drawing a rectangle");
+
+            //Console.WriteLine("drawing a rectangle");
+            StringBuilder rectangle = new StringBuilder();
+
+            for (int i = 0; i < height; i++)
+            {
+
+                for (int j = 0; j < length; j++)
+                {
+                    if (i == 0 || i == (height - 1))
+                    {
+                        rectangle.Append("x");
+                    }
+                    else
+                    {
+                        if (j == 0 || j == (length -1 ))
+                        {
+                            rectangle.Append("x");
+                        }
+                        else
+                        {
+                            rectangle.Append(" ");
+                        }
+
+                    }
+                }
+
+                rectangle.Append("\n");
+            }
+
+            SetColor();
+
+            string output = rectangle.ToString().Replace('x', Brush.GetStroke());
+            Console.WriteLine(output);
+
+            ResetColor();
+
             Console.WriteLine();
         }
 
@@ -24,9 +60,9 @@ namespace ConsolePaintProgram
             return int.Parse(Console.ReadLine());
         }
 
-        private int GetWidth()
+        private int GetHeight()
         {
-            Console.Write("Enter width: ");
+            Console.Write("Enter height: ");
             return int.Parse(Console.ReadLine());
         }
     }

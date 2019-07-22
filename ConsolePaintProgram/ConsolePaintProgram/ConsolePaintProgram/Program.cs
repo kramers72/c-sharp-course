@@ -10,6 +10,10 @@ namespace ConsolePaintProgram
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
+            Console.WriteLine("******   Welcome latest and greatest Paint - Console Paint!   ******");
+            Console.WriteLine();
+
             //TestUnicode();
             while (true)
             {
@@ -20,14 +24,16 @@ namespace ConsolePaintProgram
 
                 if (shape == null)
                 {
-                    return; 
+                    Console.WriteLine("Please enter a valid shape.");
+                    continue;
                 }
 
                 brush = GetBrush();
 
                 if (brush == null)
                 {
-                    return;
+                    Console.WriteLine("Please enter a valid brush.");
+                    continue;
                 }
 
                 shape.Brush = brush;
@@ -39,7 +45,7 @@ namespace ConsolePaintProgram
 
         private static Shape GetShape()
         {
-            Console.WriteLine("Shapes:");
+            Console.WriteLine("Choice a Shape:");
 
             Console.WriteLine();
 
@@ -55,11 +61,11 @@ namespace ConsolePaintProgram
 
         private static IBrush GetBrush()
         {
-            Console.WriteLine("Brush Color:");
+            Console.WriteLine("Select a Brush Color:");
 
             Console.WriteLine();
 
-            Console.WriteLine("1. Black");
+            Console.WriteLine("1. White");
             Console.WriteLine("2. Red");
             Console.WriteLine("3. Blue");
 
@@ -73,7 +79,9 @@ namespace ConsolePaintProgram
                 return null;
             }
 
-            Console.WriteLine("Brush Stroke:");
+
+
+            Console.WriteLine("Select a Brush Stroke:");
 
             Console.WriteLine();
 
@@ -97,25 +105,6 @@ namespace ConsolePaintProgram
                 default:
                     return null;
             }
-        }
-
-        private static void TestUnicode()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-
-            char e = (char)0xce94;
-
-            Console.WriteLine(e);
-            //for (var i = 0; i <= 1000; i++)
-            //{
-            //    //Console.Write((char)i);
-            //    //if (i % 50 == 0)
-            //    //{ // break every 50 chars
-            //    //    Console.WriteLine();
-            //    //}
-            //}
-            Console.ReadKey();
         }
 
         private static Shape GetShape(string choice)
