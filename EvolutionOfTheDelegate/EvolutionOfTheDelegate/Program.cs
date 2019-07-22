@@ -21,8 +21,6 @@ namespace EvolutionOfTheDelegate
 
 
         #region SixthEvolution
-
-        #endregion
         private static void SixthEvolution()
         {
             // lambda
@@ -52,6 +50,8 @@ namespace EvolutionOfTheDelegate
 
             Console.WriteLine(doubleIt(5));
         }
+
+        #endregion
 
         #region FifthEvolution
 
@@ -137,8 +137,6 @@ namespace EvolutionOfTheDelegate
             return (x + y).ToString();
         }
         #endregion
-
-
 
         #region ThirdEvolution
 
