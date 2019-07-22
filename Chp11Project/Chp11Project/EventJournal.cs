@@ -6,6 +6,5 @@ using System.Threading.Tasks;
 
 namespace Chp11Project
 {
-    public delegate void EventJournal<TJournalEntry>(TJournalEntry journalEntry);
-    
+    public delegate void EventJournal<TJournalEntry>(object sender, TJournalEntry journalEntry);
 }

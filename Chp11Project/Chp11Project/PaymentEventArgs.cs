@@ -12,5 +12,8 @@ namespace Chp11Project
 
         public decimal PaymentAmount { get; set; }
 
+        public decimal Balance { get; set; }
+
+        public int LoanNumber { get; set; }
     }
 }

@@ -12,23 +12,7 @@ namespace Chp11Project
 
         public event EventHandler<PaymentEventArgs> PaidOut;
 
-        public event EventHandler<PaymentEventArgs> DeficientPayment;
-
-        public EventJournal<JournalEntry> JournalEvent
-        {
-            get;
-            set;
-        }
-
-        public Func<Loan, bool> LoanSearchPredicate
-        {
-            get
-            {
-                return (l) => l.LoanNumber == LoanNumber;
-            }
-        }
-
-        public decimal InterestRate { get; set; }
+        public decimal Rate { get; set; }
 
         public int LoanNumber { get; set; }
 
@@ -38,9 +22,26 @@ namespace Chp11Project
 
         public void MakePayment(decimal paymentAmount)
         {
-           
+            ReceivedPayment?.Invoke(this, new PaymentEventArgs() { PaymentAmount = paymentAmount, Balance = Balance, TransactionDate = DateTime.Now });
+
+            Balance -= paymentAmount;
+
+            if (Balance <= 0)
+            {
+                PaidOut?.Invoke(this, new PaymentEventArgs() { PaymentAmount = paymentAmount, Balance = Balance, TransactionDate = DateTime.Now });
+            }
+
         }
 
+        public override string ToString()
+        {
+            StringBuilder s = new StringBuilder();
+            s.Append($"Loan Number: {LoanNumber}");
+            s.Append($" Balance: {Balance.ToString("c")}");
+            s.Append($" Payment: {PaymentAmount.ToString("c")}");
+            s.Append($" Rate: {Rate.ToString("p")}");
 
+            return s.ToString();
+        }
     }
 }
