@@ -10,6 +10,14 @@ namespace Chp11Project
     {
         static int _nextLoanNumber;
 
+        public EventJournal<object> EventJournal
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         static void Main(string[] args)
         {
             // goals:

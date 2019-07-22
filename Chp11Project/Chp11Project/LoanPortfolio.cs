@@ -47,6 +47,22 @@ namespace Chp11Project
         {
             Journal(this, new JournalEntry() { JournalMessage = $"Paid event for loan number: {e.LoanNumber}. Payment amount: {e.PaymentAmount.ToString("c")}. New Balance: {e.Balance.ToString("c")}" });
         }
+
+        internal Loan Loan
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public EventJournal<object> EventJournal
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
 

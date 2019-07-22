@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Chp11Project.JournalEntry">
+    <Position X="2" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JournalEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chp11Project.Loan">
+    <Position X="5.75" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAQAAAEAAwIAAAAAAAAACAIAAAAAAEAAAA=</HashCode>
+      <FileName>Loan.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PaymentEventArgs" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Chp11Project.LoanPortfolio">
+    <Position X="2" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAgAAAAAAAAAAAAAAAAAAAIAgABAAgBAAEAAABAA=</HashCode>
+      <FileName>LoanPortfolio.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Loan" />
+      <Property Name="EventJournal" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Chp11Project.PaymentEventArgs">
+    <Position X="9.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAEAEAAAA=</HashCode>
+      <FileName>PaymentEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chp11Project.Program" Collapsed="true">
+    <Position X="9.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAgAAQAAAAAAAAAAAAAAAAAIBAIAgAABIAABAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EventJournal" />
+    </ShowAsAssociation>
+  </Class>
+  <Delegate Name="Chp11Project.EventJournal&lt;TJournalEntry&gt;">
+    <Position X="2" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>EventJournal.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
