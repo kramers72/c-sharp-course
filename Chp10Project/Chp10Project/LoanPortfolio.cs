@@ -45,7 +45,7 @@ namespace Chp11Project
 
         private void LoanToAdd_PaidOut(object sender, PaymentEventArgs e)
         {
-            Journal(this, new JournalEntry() { JournalMessage = $"Paid event for loan number: {e.LoanNumber}. Payment amount: {e.PaymentAmount.ToString("c")}. New Balance: {e.Balance.ToString("c")}" });
+            Journal(this, new JournalEntry() { JournalMessage = $"Paid out event for loan number: {e.LoanNumber}. Payment amount: {e.PaymentAmount.ToString("c")}. New Balance: {e.Balance.ToString("c")}" });
         }
 
     }

@@ -19,7 +19,7 @@ namespace Chp11Project
             LoanPortfolio portfolio = new LoanPortfolio();
             portfolio.Journal = JournalEvent;
 
-           // PrePopulateLoans(portfolio);
+           PrePopulateLoans(portfolio);
 
             Console.WriteLine("Welcome to the CSharp Loan Portfolio.");
             Console.WriteLine("");
@@ -152,7 +152,7 @@ namespace Chp11Project
         private static void PrePopulateLoans(LoanPortfolio portfolio)
         {
             Random rand = new Random(DateTime.Now.Second);
-            int numLoans = rand.Next(10, 20);
+            int numLoans = rand.Next(2, 5);
 
             for (int i = 0; i < numLoans; i++)
             {
