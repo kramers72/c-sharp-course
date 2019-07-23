@@ -20,14 +20,6 @@ namespace Chp11Project
 
         public decimal PaymentAmount { get; set; }
 
-        internal PaymentEventArgs PaymentEventArgs
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public void MakePayment(decimal paymentAmount)
         {
             ReceivedPayment?.Invoke(this, new PaymentEventArgs() { PaymentAmount = paymentAmount, Balance = Balance, TransactionDate = DateTime.Now });

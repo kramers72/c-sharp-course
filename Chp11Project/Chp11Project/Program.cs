@@ -10,14 +10,6 @@ namespace Chp11Project
     {
         static int _nextLoanNumber;
 
-        public EventJournal<object> EventJournal
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         static void Main(string[] args)
         {
             // goals:
@@ -27,7 +19,7 @@ namespace Chp11Project
             LoanPortfolio portfolio = new LoanPortfolio();
             portfolio.Journal = JournalEvent;
 
-            PrePopulateLoans(portfolio);
+           // PrePopulateLoans(portfolio);
 
             Console.WriteLine("Welcome to the CSharp Loan Portfolio.");
             Console.WriteLine("");
@@ -115,13 +107,14 @@ namespace Chp11Project
 
         public static void MakePayment(LoanPortfolio portfolio)
         {
-            Console.Write("Loan number: ");
+            Console.Write("Enter Loan number: ");
             int loanNum = int.Parse(Console.ReadLine());
 
             Loan loan = portfolio.FindLoans((l) => l.LoanNumber == loanNum).FirstOrDefault();
 
             if (loan != null)
             {
+                Console.WriteLine("Details for loan:");
                 Console.WriteLine(loan);
 
                 Console.WriteLine();
