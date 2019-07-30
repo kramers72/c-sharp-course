@@ -19,7 +19,7 @@ namespace Chp11Project
             LoanPortfolio portfolio = new LoanPortfolio();
             portfolio.Journal = JournalEvent;
 
-           PrePopulateLoans(portfolio);
+            PrePopulateLoans(portfolio);
 
             Console.WriteLine("Welcome to the CSharp Loan Portfolio.");
             Console.WriteLine("");
@@ -33,7 +33,10 @@ namespace Chp11Project
                 Console.WriteLine("3. Increase Rates on Portfolio");
                 Console.WriteLine("4. Payoff all loans!");
                 Console.WriteLine("5. Display Loans");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("6. Display loans by balance");
+                Console.WriteLine("7. Display loans by rate");
+                Console.WriteLine("8. Display loans by query");
+                Console.WriteLine("9. Exit");
 
                 Console.WriteLine("");
 
@@ -41,11 +44,6 @@ namespace Chp11Project
 
                 string option = Console.ReadLine();
                 Console.WriteLine("");
-
-                if (option == "6")
-                {
-                    
-                }
 
                 switch (option)
                 {
@@ -64,12 +62,93 @@ namespace Chp11Project
                     case "5":
                         DisplayLoans(portfolio);
                         break;
+                    case "6":
+                        QueryLoansByBalance(portfolio);
+                        break;
+                    case "7":
+                        QueryLoansByRate(portfolio);
+                        break;
                     default:
                         Environment.Exit(0);
                         break;
                 }
             }
 
+        }
+
+        private static void QueryLoansByRate(LoanPortfolio portfolio)
+        {
+            Console.Write("Enter the rate: ");
+            decimal rate = decimal.Parse(Console.ReadLine());
+            rate = (rate / 100);
+            Console.Write("Enter comparison: (< or >): ");
+            string comparer = Console.ReadLine();
+
+            if (comparer == "<")
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Loans with rates < then {rate.ToString("p")}");
+
+                foreach (var loan in portfolio.FindLoans((l) => l.Rate < rate))
+                {
+                    Console.WriteLine(loan);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Loans with rates > then {rate.ToString("p")}");
+                foreach (var loan in portfolio.FindLoans((l) => l.Rate > rate))
+                {
+                    Console.WriteLine(loan);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+            }
+
+
+        }
+
+        private static void QueryLoansByBalance(LoanPortfolio portfolio)
+        {
+            Console.Write("Enter the balance: ");
+            decimal balance = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter comparison: (< or >): ");
+            string comparer = Console.ReadLine();
+
+            if (comparer == "<")
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Loans with balance < then {balance.ToString("c")}");
+
+                foreach (var loan in portfolio.FindLoans((l) => l.Balance < balance))
+                {
+                    Console.WriteLine(loan);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Loans with balance > then {balance.ToString("c")}");
+                foreach (var loan in portfolio.FindLoans((l) => l.Balance > balance))
+                {
+                    Console.WriteLine(loan);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+            }
         }
 
         public static void JournalEvent(object sender, JournalEntry journalEntry)

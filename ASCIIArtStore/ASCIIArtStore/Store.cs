@@ -45,7 +45,9 @@ namespace ASCIIArtStore
 
         private void ShowManageInventoryOption()
         {
+            // add/remove items
 
+            // update Art: change price, description, category
         }
 
         private string ShowOptions()
