@@ -8,13 +8,14 @@ namespace ASCIIArtStore
 {
     class Inventory
     {
-        public List<Art> ASCIIInventory { get; set; }
+        // you could use this class to keep counts of the different ASCIIArt objects and reduce that count as items are sold
+        public List<ASCIIArt> ASCIIInventory { get; set; }
 
-        public IEnumerable<string> Categories()
-        {
-            return from i in ASCIIInventory
-                    group i by i.Category into g
-                    select g.Key;
-        }
+        //public IEnumerable<string> Categories()
+        //{
+        //    return from i in ASCIIInventory
+        //            group i by i.Category into g
+        //            select g.Key;
+        //}
     }
 }

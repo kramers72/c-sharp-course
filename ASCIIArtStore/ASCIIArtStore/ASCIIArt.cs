@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ASCIIArtStore
 {
-    class Art
+    class ASCIIArt
     {
         public int Id { get; set; }
 
@@ -16,7 +16,12 @@ namespace ASCIIArtStore
 
         public decimal Price { get; set; }
 
-        public string Category { get; set; }
+        public ASCIICategory Category { get; set; }
+
+        public override string ToString()
+        {
+            return ASCII;
+        }
 
 
     }

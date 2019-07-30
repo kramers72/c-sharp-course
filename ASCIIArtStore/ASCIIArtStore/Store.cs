@@ -8,7 +8,16 @@ namespace ASCIIArtStore
 {
     class Store
     {
-        public Inventory Inventory { get; set; }
+        //public Inventory Inventory { get; set; }
+        private ArtRepository _repo;
+        private ShoppingCart _cart;
+
+        public event EventHandler<CheckoutEventArgs> Checkout;
+        
+        public Store()
+        {
+            _repo = new ArtRepository();
+        }
 
         public void Begin()
         {
@@ -16,6 +25,7 @@ namespace ASCIIArtStore
 
             while (true)
             {
+                PrintHeader();
                 string option = ShowOptions();
 
                 switch (option)
@@ -34,13 +44,63 @@ namespace ASCIIArtStore
 
         private void ShowViewInventoryOption()
         {
-            // list the inventory categories
+            while (true)
+            {
+                Console.Clear();
 
-            // allow category selection
+                // list the inventory categories
+                Console.WriteLine();
+                Console.WriteLine("ASCII Art Categories");
+                Console.WriteLine();
 
-            // display all art in that category
+                foreach (var category in _repo.Categories)
+                {
+                    Console.Write($"{category.Id}. {category.Description}");
+                    Console.Write("     ");
+                }
 
-            // allow purchase and fire a sale event
+                Console.WriteLine();
+                // allow category selection
+                Console.Write("Select a category: ");
+                int categoryId = int.Parse(Console.ReadLine());
+                Console.Clear();
+
+                // display all art in that category
+                foreach (var art in _repo.Categories.First(c => c.Id == categoryId).ASCIIArtPieces)
+                {
+                    Console.WriteLine();
+
+                    Console.WriteLine($"Id: {art.Id}");
+                    Console.WriteLine(art);
+
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine();
+
+                Console.WriteLine("1. Make purchase.");
+                Console.WriteLine("2. Main Menu.");
+                Console.Write("Option: ");
+
+                if (Console.ReadLine() == "1")
+                {
+                    // allow purchase and fire a sale event
+                    Console.Write("Select your purchase: ");
+                    int artId = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine(_repo.Categories.SelectMany(c => c.ASCIIArtPieces).First(a => a.Id == artId));
+                    Console.WriteLine("Has been added to your cart. Press Enter to continue shopping.");
+                    Console.ReadLine();
+                    Console.Clear();
+
+                }
+                else
+                {
+                    Console.Clear();
+                    return;
+                }
+
+            }
         }
 
         private void ShowManageInventoryOption()
@@ -56,6 +116,8 @@ namespace ASCIIArtStore
 
             Console.WriteLine("1. View Inventory");
             Console.WriteLine("2. Manage Inventory");
+            Console.Write("Option: ");
+
             option = Console.ReadLine();
 
             return option;
@@ -95,5 +157,12 @@ namespace ASCIIArtStore
 
 
         }
+
+        private void PrintHeader()
+        {
+            Console.WriteLine($"ASCII Art 1.0                                               Your Cart {0} items.");
+        }
+
+
     }
 }
