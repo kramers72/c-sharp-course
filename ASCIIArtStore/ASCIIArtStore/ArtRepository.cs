@@ -11,52 +11,29 @@ namespace ASCIIArtStore
     {
         public List<ASCIICategory> Categories { get; private set; }
 
+
+
         public ArtRepository()
         {
             InitializeData();
         }
 
-        public string GetBanner()
-        {
-            return _banner;
-        }
-
-
-        public void AddASCIIArt(string ascii, ASCIICategory category)
-        {
-            ASCIIArt art = new ASCIIArt
-            {
-                Id = category.ASCIIArtPieces.Max(a => a.Id) + 1,
-                ASCII = ascii,
-                Category = category
-            };
-            category.ASCIIArtPieces.Add(art);
-        }
-
-        public void AddASCIICategory(string categoryDescription)
-        {
-            ASCIICategory newCat = new ASCIICategory
-            {
-                Id = Categories.Max(c => c.Id) + 1,
-                Description = categoryDescription
-            };
-            Categories.Add(newCat);
-
-        }
 
         #region Private methods
 
         private void InitializeData()
         {
+            Random rand = new Random(DateTime.Now.Second);
+
             Categories = new List<ASCIICategory>();
             ASCIICategory bugCat = new ASCIICategory();
             bugCat.Id = 0;
             bugCat.Description = "Bugs";
             bugCat.ASCIIArtPieces = new List<ASCIIArt>()
                         {
-                             new ASCIIArt() {Id = 0, Category = bugCat, Description = "Ant", ASCII = _ant1},
-                             new ASCIIArt() {Id = 1, Category = bugCat, Description = "Bee", ASCII = _bee},
-                             new ASCIIArt() {Id = 2, Category = bugCat, Description = "Beetle", ASCII = _beetle},
+                             new ASCIIArt() {Id = 0, Category = bugCat, Description = "Ant", ASCII = _ant1, NumberInStock = 2 },
+                             new ASCIIArt() {Id = 1, Category = bugCat, Description = "Bee", ASCII = _bee, NumberInStock = 2},
+                             new ASCIIArt() {Id = 2, Category = bugCat, Description = "Beetle", ASCII = _beetle, NumberInStock = 2},
                         };
 
 
@@ -67,8 +44,8 @@ namespace ASCIIArtStore
             computers.Description = "Computers";
             computers.ASCIIArtPieces = new List<ASCIIArt>()
                         {
-                             new ASCIIArt() {Id = 3, Category = computers, Description = "Apple", ASCII = _apple},
-                             new ASCIIArt() {Id = 4, Category = computers, Description = "Gameboy", ASCII = _gameboy},
+                             new ASCIIArt() {Id = 3, Category = computers, Description = "Apple", ASCII = _apple, NumberInStock = 2},
+                             new ASCIIArt() {Id = 4, Category = computers, Description = "Gameboy", ASCII = _gameboy, NumberInStock = 2},
                         };
 
 
@@ -79,9 +56,9 @@ namespace ASCIIArtStore
             simpsons.Description = "Simpsons";
             simpsons.ASCIIArtPieces = new List<ASCIIArt>()
                         {
-                             new ASCIIArt() {Id =5, Category = simpsons, Description = "Homer", ASCII = _homer},
-                             new ASCIIArt() {Id = 6, Category = simpsons, Description = "Bart", ASCII = _bart},
-                             new ASCIIArt() {Id = 7, Category = simpsons, Description = "Lisa", ASCII = _lisa},
+                             new ASCIIArt() {Id =5, Category = simpsons, Description = "Homer", ASCII = _homer, NumberInStock = 2},
+                             new ASCIIArt() {Id = 6, Category = simpsons, Description = "Bart", ASCII = _bart, NumberInStock = 2},
+                             new ASCIIArt() {Id = 7, Category = simpsons, Description = "Lisa", ASCII = _lisa, NumberInStock = 2},
                         };
 
 

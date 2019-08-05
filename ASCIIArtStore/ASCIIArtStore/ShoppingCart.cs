@@ -6,19 +6,17 @@ namespace ASCIIArtStore
     {
         public List<ASCIIArt> Items { get; private set; }
 
+        public int NumberInCart { get; set; }
+
         public ShoppingCart()
         {
             Items = new List<ASCIIArt>();
+            Store.StoreInstance.AddedToCart += StoreInstance_AddedToCart;
         }
 
-        public void AddItem(ASCIIArt item)
+        private void StoreInstance_AddedToCart(object sender, AddToCartEvent e)
         {
-            Items.Add(item);
-        }
-
-        public void RemoveItem(ASCIIArt item)
-        {
-            Items.Add(item);
+            Items.Add(e.Item);
         }
 
     }

@@ -11,6 +11,19 @@ namespace ASCIIArtStore
         // you could use this class to keep counts of the different ASCIIArt objects and reduce that count as items are sold
         public List<ASCIIArt> ASCIIInventory { get; set; }
 
+        public List<InventoryItem> ASCIIInventoryItems { get; set; }
+
+        public Inventory()
+        {
+            RandomlyPopulate();
+        }
+
+        private void RandomlyPopulate()
+        {
+            
+
+        }
+
         //public IEnumerable<string> Categories()
         //{
         //    return from i in ASCIIInventory

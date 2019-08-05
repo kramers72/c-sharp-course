@@ -14,9 +14,8 @@ namespace ASCIIArtStore
 
             // 1. View Inventory
 
-            Store storeFront = new Store();
 
-            storeFront.Begin();
+            Store.StoreInstance.Begin();
             //Console.WriteLine(new Banner());
 
             //Console.
