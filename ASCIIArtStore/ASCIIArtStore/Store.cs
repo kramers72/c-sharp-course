@@ -8,7 +8,6 @@ namespace ASCIIArtStore
 {
     class Store
     {
-        public Inventory _inventory;
         private ArtRepository _repo;
         private ShoppingCart _cart;
         private static Store _instance;
@@ -31,7 +30,7 @@ namespace ASCIIArtStore
 
         private Store()
         {
-           
+
             //_inventory = new Inventory();
         }
 
@@ -39,8 +38,7 @@ namespace ASCIIArtStore
         {
             _repo = new ArtRepository();
             _cart = new ShoppingCart();
-            WireUpEvents();
-
+          
             PrintBanner();
 
             while (true)
@@ -52,6 +50,12 @@ namespace ASCIIArtStore
                     case "1":
                         ShowViewInventoryOption();
                         break;
+                    case "2":
+                        ShowCart();
+                        break;
+                    case "3":
+                        DoCheckout();
+                        break;
                     //case "2":
                     //    ShowManageInventoryOption();
                     //    break;
@@ -61,13 +65,27 @@ namespace ASCIIArtStore
             }
         }
 
-      private void ShowViewInventoryOption()
+        private void ShowCart()
+        {
+            _cart.PrintHeader();
+
+            PrintCart();
+        }
+
+        private void PrintCart()
+        {
+            Console.Clear();
+            Console.WriteLine(_cart);
+
+        }
+
+        private void ShowViewInventoryOption()
         {
             while (true)
             {
                 Console.Clear();
 
-                PrintHeader();
+                _cart.PrintHeader();
 
                 // list the inventory categories
                 Console.WriteLine();
@@ -83,10 +101,17 @@ namespace ASCIIArtStore
                 Console.WriteLine();
                 // allow category selection
                 Console.Write("Select a category: ");
-                int categoryId = int.Parse(Console.ReadLine());
+                int categoryId = 0;
+
+                if (!int.TryParse(Console.ReadLine(), out categoryId))
+                {
+                    Console.Clear();
+                    return;
+                }
+
                 Console.Clear();
 
-                PrintHeader();
+                _cart.PrintHeader();
 
                 // display all art in that category
                 foreach (var art in _repo.Categories.First(c => c.Id == categoryId).ASCIIArtPieces)
@@ -95,11 +120,11 @@ namespace ASCIIArtStore
 
                     if (art.NumberInStock == 0)
                     {
-                        Console.WriteLine($"Id: {art.Id}        Out Of Stock!");
+                        Console.WriteLine($"Id: {art.Id}\t\tOut Of Stock!");
                     }
                     else
                     {
-                        Console.WriteLine($"Id: {art.Id}        {art.NumberAvailable} In Stock.");
+                        Console.WriteLine($"Id: {art.Id}\t\t{art.Price.ToString("c")}\t\t{art.NumberAvailable} In Stock.");
                     }
 
                     Console.WriteLine(art);
@@ -149,15 +174,34 @@ namespace ASCIIArtStore
         {
             string option = string.Empty;
 
-            PrintHeader();
+            _cart.PrintHeader();
 
             Console.WriteLine("1. View Inventory");
-            Console.WriteLine("2. Manage Inventory");
+            Console.WriteLine("2. Show Cart");
+            Console.WriteLine("3. Checkout");
             Console.Write("Option: ");
 
             option = Console.ReadLine();
 
             return option;
+        }
+
+        private void DoCheckout()
+        {
+            _cart.PrintHeader();
+
+            Console.Write("Confirm your purchase with a Y: ");
+
+            switch (Console.ReadLine())
+            {
+                case "Y":
+                    Checkout?.Invoke(this, new CheckoutEventArgs(this));
+                    break;
+                default:
+                    break;
+
+            }
+
         }
 
         private void PrintBanner()
@@ -195,17 +239,5 @@ namespace ASCIIArtStore
 
         }
 
-        private void PrintHeader()
-        {
-            Console.WriteLine($"ASCII Art 1.0                                               Your Cart {_cart.Items.Count} items.");
-        }
-
-        private void WireUpEvents()
-        {
-            foreach (var items in _repo.Categories.SelectMany(c => c.ASCIIArtPieces))
-            {
-                AddedToCart += items.Store_AddedToCart;
-            }
-        }
-    }
+          }
 }

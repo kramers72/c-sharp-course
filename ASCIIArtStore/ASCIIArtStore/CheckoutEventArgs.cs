@@ -1,6 +1,14 @@
-﻿namespace ASCIIArtStore
+﻿using System.Collections.Generic;
+
+namespace ASCIIArtStore
 {
-    public class CheckoutEventArgs
+    class CheckoutEventArgs
     {
+        private Store _store { get; set; }
+
+        public CheckoutEventArgs(Store store)
+        {
+            store = _store;
+        }
     }
 }

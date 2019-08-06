@@ -38,10 +38,5 @@ namespace ASCIIArtStore
         {
             return ASCII;
         }
-
-        public void Store_AddedToCart(object sender, AddToCartEvent e)
-        {
-            NumberInCart++;
-        }
     }
 }

@@ -31,9 +31,9 @@ namespace ASCIIArtStore
             bugCat.Description = "Bugs";
             bugCat.ASCIIArtPieces = new List<ASCIIArt>()
                         {
-                             new ASCIIArt() {Id = 0, Category = bugCat, Description = "Ant", ASCII = _ant1, NumberInStock = 2 },
-                             new ASCIIArt() {Id = 1, Category = bugCat, Description = "Bee", ASCII = _bee, NumberInStock = 2},
-                             new ASCIIArt() {Id = 2, Category = bugCat, Description = "Beetle", ASCII = _beetle, NumberInStock = 2},
+                             new ASCIIArt() {Id = 0, Category = bugCat, Description = "Ant", ASCII = _ant1, NumberInStock = 2, Price = 5 },
+                             new ASCIIArt() {Id = 1, Category = bugCat, Description = "Bee", ASCII = _bee, NumberInStock = 2, Price = 10},
+                             new ASCIIArt() {Id = 2, Category = bugCat, Description = "Beetle", ASCII = _beetle, NumberInStock = 2, Price = 25},
                         };
 
 
@@ -44,8 +44,8 @@ namespace ASCIIArtStore
             computers.Description = "Computers";
             computers.ASCIIArtPieces = new List<ASCIIArt>()
                         {
-                             new ASCIIArt() {Id = 3, Category = computers, Description = "Apple", ASCII = _apple, NumberInStock = 2},
-                             new ASCIIArt() {Id = 4, Category = computers, Description = "Gameboy", ASCII = _gameboy, NumberInStock = 2},
+                             new ASCIIArt() {Id = 3, Category = computers, Description = "Apple", ASCII = _apple, NumberInStock = 2, Price = 5},
+                             new ASCIIArt() {Id = 4, Category = computers, Description = "Gameboy", ASCII = _gameboy, NumberInStock = 2, Price = 10},
                         };
 
 
@@ -56,9 +56,9 @@ namespace ASCIIArtStore
             simpsons.Description = "Simpsons";
             simpsons.ASCIIArtPieces = new List<ASCIIArt>()
                         {
-                             new ASCIIArt() {Id =5, Category = simpsons, Description = "Homer", ASCII = _homer, NumberInStock = 2},
-                             new ASCIIArt() {Id = 6, Category = simpsons, Description = "Bart", ASCII = _bart, NumberInStock = 2},
-                             new ASCIIArt() {Id = 7, Category = simpsons, Description = "Lisa", ASCII = _lisa, NumberInStock = 2},
+                             new ASCIIArt() {Id =5, Category = simpsons, Description = "Homer", ASCII = _homer, NumberInStock = 2, Price = 5},
+                             new ASCIIArt() {Id = 6, Category = simpsons, Description = "Bart", ASCII = _bart, NumberInStock = 2, Price = 10},
+                             new ASCIIArt() {Id = 7, Category = simpsons, Description = "Lisa", ASCII = _lisa, NumberInStock = 2, Price = 25},
                         };
 
 
