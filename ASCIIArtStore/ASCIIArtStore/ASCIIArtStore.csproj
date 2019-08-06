@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddToCartEvent.cs" />
-    <Compile Include="Admin.cs" />
     <Compile Include="ASCIIArt.cs" />
     <Compile Include="ArtRepository.cs" />
     <Compile Include="ASCIICategory.cs" />

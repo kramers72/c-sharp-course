@@ -196,6 +196,10 @@ namespace ASCIIArtStore
             {
                 case "Y":
                     Checkout?.Invoke(this, new CheckoutEventArgs(this));
+
+                    Console.WriteLine("Thank you for your purchase! Press Enter to Continue.");
+                    Console.ReadLine();
+                    Console.Clear();
                     break;
                 default:
                     break;
