@@ -6,17 +6,41 @@ using System.Threading.Tasks;
 
 namespace LinqSandbox
 {
+
+    static class ExtensionMethods {
+
+
+        public static bool IsPalindrome(this string s)
+        {
+            return true;
+        }
+    }
     class Program
     {
+
+
         static void Main(string[] args)
         {
+
+            string example = "some data";
+
+            //example.is
             Testing();
 
+            var thisIsAnInt = 1;
+            var thisIsDecimal = 1m;
             // display all products with more then 50 in stock
 
 
             // display the name of products with a price between 10 and 20
+            Func<int, int> f = (i) =>
+            {
 
+                return i * i;
+            };
+
+
+            f(2);
             // group products by price
         }
 
