@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace LinqSandbox
 {
@@ -22,26 +23,26 @@ namespace LinqSandbox
         static void Main(string[] args)
         {
 
-            string example = "some data";
+            ProductList[] pList = new ProductList().GetProductList();
 
-            //example.is
-            Testing();
+            decimal maxPrice = pList.Max(p => p.UnitPrice);
 
-            var thisIsAnInt = 1;
-            var thisIsDecimal = 1m;
-            // display all products with more then 50 in stock
-
-
-            // display the name of products with a price between 10 and 20
-            Func<int, int> f = (i) =>
+            Console.WriteLine("max price items");
+            foreach (var item in pList.Where(p => p.UnitPrice== maxPrice))
             {
+                Console.WriteLine(item);
+            }
 
-                return i * i;
-            };
 
+            int minUnitsInStock = pList.Min(p => p.UnitsInStock);
 
-            f(2);
-            // group products by price
+            Console.WriteLine("min in stock");
+            foreach (var item in pList.Where(p => p.UnitsInStock == minUnitsInStock))
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadLine();
         }
 
         static void Testing()

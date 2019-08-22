@@ -17,9 +17,12 @@ namespace LinqSandbox
         public decimal UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
 
+        public override string ToString()
+        {
+            return $"ID: {ProductID} {Category}-{ProductName} {UnitPrice.ToString("C")} {UnitsInStock} in stock.";
+        }
 
-
-        ProductList[] GetProductList() {
+        public ProductList[] GetProductList() {
             return new ProductList[] {
               new ProductList { ProductID = 1, ProductName = "Chai", Category = "Beverages",
                 UnitPrice = 18.0000M, UnitsInStock = 39 },
