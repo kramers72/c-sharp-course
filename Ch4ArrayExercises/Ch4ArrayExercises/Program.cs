@@ -27,6 +27,7 @@ namespace Ch4ArrayExercises
                 choices[i] = Console.ReadLine();
             }
 
+
             Console.WriteLine();
 
             foreach (var choice in choices)
@@ -57,7 +58,9 @@ namespace Ch4ArrayExercises
 
             Console.WriteLine("Sales numbers sorted:");
             Array.Sort(salesData);
-            foreach (var sale in salesData)
+
+
+            foreach (decimal sale in salesData)
             {
                 Console.WriteLine(sale);
             }
