@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,11 @@ namespace SimpleClassExample
         {
             Car myCar = new Car();
 
+            myCar.PrintState();
+
             myCar.PetName = "Henry";
             myCar.CurrSpeed = 10;
+            myCar.MyColor = Color.GreenYellow;
 
             myCar.PrintState();
 
@@ -30,12 +34,19 @@ namespace SimpleClassExample
                 carArray[i] = new Car();
                 carArray[i].CurrSpeed = 5 + i;
                 carArray[i].PetName = $"Car{i}";
+                carArray[i].MyColor = Color.Azure;
             }
 
             foreach (Car item in carArray)
             {
                 item.PrintState();
             }
+
+            Console.WriteLine();
+
+            Car bmw = new Car("Betsy");
+
+            bmw.PrintState();
 
             Console.ReadLine();
         }
