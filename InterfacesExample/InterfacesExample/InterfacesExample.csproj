@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7E9B7ADF-1E01-483D-9F18-9984C77D2D36}</ProjectGuid>
+    <ProjectGuid>{7C71C782-9CDC-4408-87E1-F77499D02358}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ch9HandsOn</RootNamespace>
-    <AssemblyName>Ch9HandsOn</AssemblyName>
+    <RootNamespace>InterfacesExample</RootNamespace>
+    <AssemblyName>InterfacesExample</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Loan.cs" />
+    <Compile Include="Android.cs" />
+    <Compile Include="ApplePhone.cs" />
+    <Compile Include="ISmartPhone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartPhone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

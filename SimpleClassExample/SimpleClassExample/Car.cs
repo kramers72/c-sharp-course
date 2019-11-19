@@ -73,5 +73,11 @@ namespace SimpleClassExample
             _currSpeed += delta;
 
         }
+
+        public override string ToString()
+        {
+            string thisIsWhatBaseSays=  base.ToString();
+            return thisIsWhatBaseSays + " this is what i say";
+        }
     }
 }
