@@ -10,6 +10,17 @@ namespace Ch9HandsOn
     {
         static void Main(string[] args)
         {
+            List<int> toSort = new List<int>();
+            for (int i = 0; i < 1000000; i++)
+            {
+                toSort.Add(new Random().Next(100));
+            }
+
+            toSort.Sort();
+
+
+
+
             // create list of primitives
             List<int> oddNumbers = new List<int>() { 1, 3, 5, 7, 9 };
 
