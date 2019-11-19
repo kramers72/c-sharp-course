@@ -10,15 +10,8 @@ namespace Ch9HandsOn
     {
         static void Main(string[] args)
         {
-            List<int> toSort = new List<int>();
-            for (int i = 0; i < 1000000; i++)
-            {
-                toSort.Add(new Random().Next(100));
-            }
 
-            toSort.Sort();
-
-
+            ProcessLoans();
 
 
             // create list of primitives
@@ -29,11 +22,11 @@ namespace Ch9HandsOn
                 oddNumbers.Add(oddNumbers[oddNumbers.Count() - 1] + 2);
             }
 
-            List<int> evenNumbers = new List<int>() { 2,4,6,8,10 };
+            List<int> evenNumbers = new List<int>() { 2, 4, 6, 8, 10 };
 
             for (int i = 0; i < 5; i++)
             {
-               evenNumbers.Add(evenNumbers[evenNumbers.Count() - 1] + 2);
+                evenNumbers.Add(evenNumbers[evenNumbers.Count() - 1] + 2);
             }
 
             Console.WriteLine("oddNumbers:");
@@ -72,6 +65,56 @@ namespace Ch9HandsOn
 
 
 
+        }
+
+        private static void ProcessLoans()
+        {
+            List<Loan> loansVMF = new List<Loan>();
+            Random r = new Random(DateTime.Now.Second);
+
+            for (int i = 0; i < 100; i++)
+            {
+                Loan loan = new Loan()
+                {
+                    LoanNo = i + 1,
+                    InterestRate = (decimal)r.NextDouble() * 20,
+                    PrincipalBalance = (decimal)r.NextDouble() * 20000,
+                    Term = r.Next(10, 25),
+                    Originator = "Clayton",
+                };
+
+                loansVMF.Add(loan);
+            }
+
+            List<Loan> loansSilverton = new List<Loan>();
+            int baseLoanNo = 100;
+            
+            for (int i = 0; i < 100; i++)
+            {
+                Loan loan = new Loan()
+                {
+                    LoanNo = baseLoanNo + i + 1,
+                    InterestRate = (decimal)r.NextDouble() * 40,
+                    PrincipalBalance = (decimal)r.NextDouble() * 450000,
+                    Term = r.Next(15, 30),
+                    Originator = "Silverton",
+                };
+
+                loansSilverton.Add(loan);
+            }
+
+            List<Loan> allLoans = new List<Loan>();
+
+            allLoans.AddRange(loansSilverton);
+            allLoans.AddRange(loansVMF);
+
+            foreach (Loan item in allLoans)
+            {
+                Console.WriteLine(item);
+            }
+
+            // implement this 
+            //allLoans.Sort();
         }
     }
 }
