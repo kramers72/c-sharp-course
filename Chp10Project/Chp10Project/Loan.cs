@@ -30,7 +30,6 @@ namespace Chp11Project
             {
                 PaidOut?.Invoke(this, new PaymentEventArgs() { PaymentAmount = paymentAmount, Balance = Balance, TransactionDate = DateTime.Now });
             }
-
         }
 
         public override string ToString()

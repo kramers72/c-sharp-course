@@ -10,6 +10,8 @@ namespace Chp11Project
     {
         public List<Loan> Loans { get; set; }
 
+        public EventJournal<JournalEntry> Journal { get; set; }
+
         public LoanPortfolio()
         {
             Loans = new List<Loan>();
@@ -35,8 +37,6 @@ namespace Chp11Project
                 action(item);
             }
         }
-
-        public EventJournal<JournalEntry> Journal { get; set; }
 
         private void LoanToAdd_ReceivedPayment(object sender, PaymentEventArgs e)
         {
