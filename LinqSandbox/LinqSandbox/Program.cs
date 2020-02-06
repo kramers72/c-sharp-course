@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
+
 
 namespace LinqSandbox
 {
 
-    static class ExtensionMethods {
+    static class ExtensionMethods
+    {
 
 
         public static bool IsPalindrome(this string s)
@@ -28,7 +29,12 @@ namespace LinqSandbox
             decimal maxPrice = pList.Max(p => p.UnitPrice);
 
             Console.WriteLine("max price items");
-            foreach (var item in pList.Where(p => p.UnitPrice== maxPrice))
+
+            IEnumerable<ProductList> filteredCollection = from product in pList
+                                                          where product.UnitPrice == maxPrice
+                                                          select product;
+
+            foreach (var item in pList.Where(p => p.UnitPrice == maxPrice))
             {
                 Console.WriteLine(item);
             }

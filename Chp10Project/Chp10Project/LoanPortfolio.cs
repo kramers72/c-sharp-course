@@ -22,6 +22,7 @@ namespace Chp11Project
             Loans.Add(loanToAdd);
             loanToAdd.PaidOut += LoanToAdd_PaidOut;
             loanToAdd.ReceivedPayment += LoanToAdd_ReceivedPayment;
+
             Journal(this, new JournalEntry() { JournalMessage = $"Loan number: {loanToAdd.LoanNumber} added to the portfolio." });
         }
 
