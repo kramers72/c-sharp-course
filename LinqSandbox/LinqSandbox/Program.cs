@@ -20,18 +20,58 @@ namespace LinqSandbox
     class Program
     {
 
+        void Charles()
+        {
+
+        }
+
+        ProductList Charles2()
+        {
+            return null;
+        }
+
+        static decimal Reusable(ProductList p)
+        {
+
+            return p.UnitPrice;
+        }
+
 
         static void Main(string[] args)
         {
 
             ProductList[] pList = new ProductList().GetProductList();
 
+            var s = pList.Select(
+                (ProductList p) =>
+            {
+                return p.UnitPrice;
+            });
+
+            var s2 = pList.Select(Reusable);
+
+            foreach (var item in pList.Select(p => p.UnitPrice).OrderBy(p => p))
+            {
+                Console.WriteLine(item);
+            }
+
+
+            Console.ReadLine();
+
+            pList.Count(p =>
+            {
+                return p.UnitPrice > 10;
+
+            });
+
             decimal maxPrice = pList.Max(p => p.UnitPrice);
+
+
 
             Console.WriteLine("max price items");
 
             IEnumerable<ProductList> filteredCollection = from product in pList
-                                                          where product.UnitPrice == maxPrice
+                                                          where product.UnitPrice == maxPrice && product.UnitsInStock > 0
                                                           select product;
 
             foreach (var item in pList.Where(p => p.UnitPrice == maxPrice))
