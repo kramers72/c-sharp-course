@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLotMVC_Core2", "AutoLotMVC_Core2\AutoLotMVC_Core2.csproj", "{B075BFA5-4F2E-4153-827C-1D23BB45D38D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLotDAL_Core2", "..\..\..\Documents\Work\csharp course\pro-csharp-7-master\Chapter_32\AutoLotDAL_Core2\AutoLotDAL_Core2\AutoLotDAL_Core2.csproj", "{D131BE39-55BB-4F4A-AC39-2DBFA0A58DD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLotDAL_Core2", "AutoLotDAL_Core2\AutoLotDAL_Core2.csproj", "{D131BE39-55BB-4F4A-AC39-2DBFA0A58DD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLotDAL_Core2.Models", "..\..\..\Documents\Work\csharp course\pro-csharp-7-master\Chapter_32\AutoLotDAL_Core2\AutoLotDAL_Core2.Models\AutoLotDAL_Core2.Models.csproj", "{DF831503-745C-4B1F-82EF-B04678137B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLotDAL_Core2.Models", "AutoLotDAL_Core2.Models\AutoLotDAL_Core2.Models.csproj", "{DF831503-745C-4B1F-82EF-B04678137B94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
